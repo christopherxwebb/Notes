@@ -1,3 +1,5 @@
+const NotesModel = require('../notesModel.js')
+
 describe('class NotesModel', () => {
   beforeEach(() => {
     model = new NotesModel()
