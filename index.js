@@ -7,8 +7,3 @@
 console.log('Hello from the developer console!');
 
 console.log(new Date());
-
-const add = require('./add.js')
-const multiply = require('./multiply.js')
-
-console.log(multiply(add(2, 2), 10));

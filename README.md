@@ -1,1 +1,1 @@
-# javascript-week-2
+# notes-app
