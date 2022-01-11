@@ -10,7 +10,6 @@ class NotesView {
       const noteEl = document.createElement('div')
       noteEl.innerText = note;
       noteEl.className = 'note';
-      console.log(this.mainContainerEl);
       this.mainContainerEl.append(noteEl);
     });
   };
