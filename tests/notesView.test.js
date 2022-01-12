@@ -37,6 +37,7 @@ describe('class notesView', () => {
     input2.value = "Eat lunch";
     button.click();
 
-    expect(document.querySelectorAll('div.note').length).toEqual(3);
+    expect(document.querySelectorAll('div.note').length).toEqual(2);
   })
+
 });

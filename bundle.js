@@ -37,6 +37,11 @@
           });
         }
         displayNotes() {
+          const removeNote = document.querySelectorAll(".note");
+          removeNote.forEach((note) => {
+            note.remove();
+          });
+          document.querySelector("#addNote").value = "";
           const notes = this.model.getNotes();
           notes.forEach((note) => {
             const noteEl = document.createElement("div");
@@ -62,6 +67,5 @@
   console.log("The notes app is running");
   var NotesView = require_notesView();
   var view = new NotesView(model);
-  model.addNote("This is an example note");
   view.displayNotes();
 })();
