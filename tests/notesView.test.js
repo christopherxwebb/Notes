@@ -21,4 +21,22 @@ describe('class notesView', () => {
 
     expect(document.querySelectorAll('div.note').length).toEqual(2);
   });
+
+  it('add note button', () => {
+    document.body.innerHTML = fs.readFileSync('./index.html');
+
+    const model = new NotesModel()
+    const view = new NotesView(model)
+
+    const button = document.querySelector("#add-note-button")
+    const input = document.querySelector("#addNote")
+    input.value = "Walk dog";
+    button.click();
+    
+    const input2 = document.querySelector("#add-note-button")
+    input2.value = "Eat lunch";
+    button.click();
+
+    expect(document.querySelectorAll('div.note').length).toEqual(3);
+  })
 });

@@ -32,6 +32,9 @@
         constructor(model2) {
           this.model = model2;
           this.mainContainerEl = document.querySelector("#main-container");
+          document.querySelector("#add-note-button").addEventListener("click", () => {
+            this.addNote();
+          });
         }
         displayNotes() {
           const notes = this.model.getNotes();
@@ -41,6 +44,11 @@
             noteEl.className = "note";
             this.mainContainerEl.append(noteEl);
           });
+        }
+        addNote() {
+          const note = document.querySelector("#addNote").value;
+          this.model.addNote(note);
+          this.displayNotes();
         }
       };
       module.exports = NotesView2;
