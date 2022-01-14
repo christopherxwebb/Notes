@@ -15,7 +15,6 @@
         }
         createNote(note) {
           const data = { content: note };
-          console.log(JSON.stringify(data))
           fetch("http://localhost:3000/notes", {
             method: "POST",
             headers: {
@@ -24,6 +23,15 @@
             body: JSON.stringify(data)
           }).then((response) => response.json()).then((data2) => {
             console.log("Success:", data2);
+          }).catch((error) => {
+            console.error("Error:", error);
+          });
+        }
+        clearNote() {
+          fetch("http://localhost:3000/notes", {
+            method: "delete"
+          }).then((response) => response.json()).then((data) => {
+            console.log("Success:", data);
           }).catch((error) => {
             console.error("Error:", error);
           });
@@ -64,12 +72,15 @@
     "notesView.js"(exports, module) {
       var NotesApi2 = require_notesApi();
       var NotesView2 = class {
-        constructor(model2) {
+        constructor(model2, api2 = new NotesApi2()) {
           this.model = model2;
-          this.api = new NotesApi2();
+          this.api = api2;
           this.mainContainerEl = document.querySelector("#main-container");
           document.querySelector("#add-note-button").addEventListener("click", () => {
             this.addNote();
+          });
+          document.querySelector("#clear-note-button").addEventListener("click", () => {
+            this.clearNote();
           });
         }
         displayNotes() {
@@ -90,6 +101,11 @@
           const note = document.querySelector("#addNote").value;
           this.model.addNote(note);
           this.api.createNote(note);
+          this.displayNotes();
+        }
+        clearNote() {
+          this.api.clearNote();
+          this.model.reset();
           this.displayNotes();
         }
       };

@@ -12,7 +12,8 @@ describe('class notesView', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
 
     const model = new NotesModel()
-    const view = new NotesView(model)
+    const api = {createNote: "object"}
+    const view = new NotesView(model, api)
 
     model.addNote('Go to the gym')
     model.addNote('Walk the dog')
@@ -26,7 +27,8 @@ describe('class notesView', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
 
     const model = new NotesModel()
-    const view = new NotesView(model)
+    const api = {createNote: "object"}
+    const view = new NotesView(model, api)
 
     const button = document.querySelector("#add-note-button")
     const input = document.querySelector("#addNote")
