@@ -1,6 +1,6 @@
 # Building a Notes App
 
-The Notes App allows the user to create, save and store notes on a server.
+The Notes App allows the user to create, save and clear notes on a server.
 
 Built with JS, node.js, HTML and CSS.
 
